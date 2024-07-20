@@ -3,7 +3,7 @@ const myProfile = {
     age: 27
 }
 
-const { name, age } = myProfile;
+const { name, age = 31 } = myProfile;
 export const message = `My name is ${name}. Age is ${age}.`
 
 
