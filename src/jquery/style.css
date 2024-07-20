@@ -64,4 +64,5 @@ button:hover {
 
 .todo-item {
     margin: 6px;
+    margin-right: 10px;
 }
