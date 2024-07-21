@@ -15,17 +15,21 @@ function App() {
     setTodoInput('');
   }
   const completeTodo = (targetTodoIndex: number) => {
-    console.log(targetTodoIndex)
+    const newTodos = [...todos];
     setCompleteTodos([...completeTodos, todos[targetTodoIndex]])
-    console.log(todos)
-    setTodos(todos.splice(targetTodoIndex+1, 1))
+    newTodos.splice(targetTodoIndex, 1)
+    setTodos(newTodos)
   }
   const deleteTodo = (targetTodoIndex: number) => {
-    setTodos(todos.splice(targetTodoIndex+1, 1))
+    const newTodos = [...todos];
+    newTodos.splice(targetTodoIndex, 1)
+    setTodos(newTodos)
   }
   const backTodo = (targetTodoIndex: number) => {
+    const newCompleteTodos = [...completeTodos];
     setTodos([...todos, completeTodos[targetTodoIndex]])
-    setCompleteTodos(todos.splice(targetTodoIndex+1, 1))
+    newCompleteTodos.splice(targetTodoIndex, 1)
+    setCompleteTodos(newCompleteTodos)
   }
 
 
