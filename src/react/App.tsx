@@ -5,23 +5,27 @@ function App() {
   const [todos, setTodos] = useState<string[]>([]);
   const [completeTodos, setCompleteTodos] = useState<string[]>([]);
 
-  const InputTodoChangeHandler = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+  const InputTodoChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTodoInput(event.target.value)
   }
 
   const addTodo = () => {
+    if(todoInput == '') return;
     setTodos([...todos, todoInput]);
+    setTodoInput('');
   }
-  const completeTodo = (targetTodo: string) => {
-    setTodos(todos.filter((todo) => todo != targetTodo))
-    setCompleteTodos([...completeTodos, targetTodo])
+  const completeTodo = (targetTodoIndex: number) => {
+    console.log(targetTodoIndex)
+    setCompleteTodos([...completeTodos, todos[targetTodoIndex]])
+    console.log(todos)
+    setTodos(todos.splice(targetTodoIndex+1, 1))
   }
-  const deleteTodo = (targetTodo: string) => {
-    setTodos(todos.filter((todo) => todo != targetTodo))
+  const deleteTodo = (targetTodoIndex: number) => {
+    setTodos(todos.splice(targetTodoIndex+1, 1))
   }
-  const backTodo = (targetTodo: string) => {
-    setCompleteTodos(todos.filter((todo) => todo != targetTodo))
-    setTodos([...todos, targetTodo])
+  const backTodo = (targetTodoIndex: number) => {
+    setTodos([...todos, completeTodos[targetTodoIndex]])
+    setCompleteTodos(todos.splice(targetTodoIndex+1, 1))
   }
 
 
@@ -35,28 +39,28 @@ function App() {
       <div className="incomplete-area">
           <p className="title">未完了のTODO</p>
           <ul id="incomplete-list">
-            {todos.map((todo) => {
-              return(
-                <li>
+            {todos.map((todo, index) =>
+              (
+                <li key={todo}>
                   <p>{todo}</p>
-                  <button onClick={() => completeTodo(todo)}>完了</button>
-                  <button onClick={() => deleteTodo(todo)}>削除</button>
+                  <button onClick={() => completeTodo(index)}>完了</button>
+                  <button onClick={() => deleteTodo(index)}>削除</button>
                 </li>
               )
-            })}
+            )}
           </ul>
       </div>
       <div className="complete-area">
           <p className="title">完了のTODO</p>
           <ul id="complete-list">
-            {completeTodos?.map((todo) => {
-              return(
-              <li>
+            {completeTodos?.map((todo, index) =>
+              (
+              <li key={todo}>
                 <p>{todo}</p>
-                <button onClick={() => backTodo(todo)}>戻す</button>
+                <button onClick={() => backTodo(index)}>戻す</button>
               </li>
               )
-            })}
+            )}
           </ul>
       </div>
       <nav>
