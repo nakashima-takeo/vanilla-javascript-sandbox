@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    root: 'src/jquery',
+    root: 'src',
+    
     build:{
         outDir: '../../dist',
         emptyOutDir: true,
