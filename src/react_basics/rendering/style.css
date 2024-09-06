@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+ul {
+  list-style-position: outside; /* ドットをテキストの外側に表示 */
+  padding-left: 50px; /* リストの左側に適切な余白を追加 */
+}
+
+li {
+  text-align: left; /* テキストを左揃えにする */
+}
+
+button {
+  cursor: pointer;
+}
