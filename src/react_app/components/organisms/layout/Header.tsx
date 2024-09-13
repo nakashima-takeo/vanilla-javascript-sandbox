@@ -26,10 +26,10 @@ export const Header: FC = memo(() => {
             <Link onClick={onClickUserManagement} to="/user_management">ユーザー一覧</Link>
           </Box>
           <Box pr={4}>
-            <Link onClick={onClickSetting} to="/setting">Setting</Link>
+            <Link onClick={onClickSetting} to="/setting">設定</Link>
           </Box>
           <Box>
-            <Link onClick={onClickLogin} to="/login">Login</Link>
+            <Link onClick={onClickLogin} to="/login">ログイン</Link>
           </Box>
         </Flex>
         <MenuIconButton onOpen={onOpen} />
