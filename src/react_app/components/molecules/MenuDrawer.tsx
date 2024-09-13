@@ -7,9 +7,11 @@ type Props = {
   onClickHome: () => void
   onClickUserManagement: () => void
   onClickSetting: () => void
+  onClickLogin: () => void
 }
 
-export const MenuDrawer: FC<Props> = ({ isOpen, onClose, onClickHome, onClickUserManagement, onClickSetting }) => {
+export const MenuDrawer: FC<Props> = (props) => {
+  const { isOpen, onClose, onClickHome, onClickUserManagement, onClickSetting, onClickLogin } = props
   return (
     <Drawer placement="left" onClose={onClose} isOpen={isOpen} >
       <DrawerOverlay>
@@ -18,6 +20,7 @@ export const MenuDrawer: FC<Props> = ({ isOpen, onClose, onClickHome, onClickUse
             <Button w="100%" onClick={onClickHome}>TOP</Button>
             <Button w="100%" onClick={onClickUserManagement}>ユーザー一覧</Button>
             <Button w="100%" onClick={onClickSetting}>設定</Button>
+            <Button w="100%" onClick={onClickLogin}>ログイン</Button>
           </DrawerBody>
         </DrawerContent>
       </DrawerOverlay>

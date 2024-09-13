@@ -11,6 +11,7 @@ export const Header: FC = memo(() => {
   const onClickHome = useCallback(() => navigate("/"), []);
   const onClickUserManagement = useCallback(() => navigate("/user_management"), []);
   const onClickSetting = useCallback(() => navigate("/setting"), []);
+  const onClickLogin = useCallback(() => navigate("/login"), []);
 
   return (
     <>
@@ -24,13 +25,16 @@ export const Header: FC = memo(() => {
           <Box pr={4}>
             <Link onClick={onClickUserManagement} to="/user_management">ユーザー一覧</Link>
           </Box>
-          <Box>
+          <Box pr={4}>
             <Link onClick={onClickSetting} to="/setting">Setting</Link>
+          </Box>
+          <Box>
+            <Link onClick={onClickLogin} to="/login">Login</Link>
           </Box>
         </Flex>
         <MenuIconButton onOpen={onOpen} />
       </Flex>
-      <MenuDrawer isOpen={isOpen} onClose={onClose} onClickHome={onClickHome} onClickUserManagement={onClickUserManagement} onClickSetting={onClickSetting} />
+      <MenuDrawer isOpen={isOpen} onClose={onClose} onClickHome={onClickHome} onClickUserManagement={onClickUserManagement} onClickSetting={onClickSetting} onClickLogin={onClickLogin}/>
     </>
 	);
 });
