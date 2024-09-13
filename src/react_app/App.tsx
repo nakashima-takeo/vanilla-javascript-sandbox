@@ -1,10 +1,14 @@
-import { Button } from "@chakra-ui/react";
 import React from "react";
+
+import { Outlet } from "react-router-dom";
+import { HeaderLayout } from "./components/templates/HeaderLayout";
 
 export const App = () => {
   return (
     <div>
-      <Button colorScheme="teal">ボタン</Button>
+      <HeaderLayout>
+        <Outlet />
+      </HeaderLayout>
     </div>
   )
 }

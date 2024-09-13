@@ -11,13 +11,14 @@ import { UserManagement } from "../components/pages/UserManagement";
 export const Router = () => {
   return (
     <Routes>
-      <Route index element={<App />} />
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<App />}>
+        <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="setting" element={<Setting />} />
         <Route path="user_management" element={<UserManagement />} />
         <Route path="react_app/index.html" element={<Home />} />
         <Route path="/*" element={<NotFound />} />
+      </Route>
     </Routes>
   )
 }
