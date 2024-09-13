@@ -11,10 +11,10 @@ const domNode = document.getElementById('navigation')!;
 const root = createRoot(domNode);
 root.render(
   <StrictMode>
-    <BrowserRouter>
-      <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme}>
+      <BrowserRouter>
         <Router />
-      </ChakraProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ChakraProvider>
   </StrictMode>
 );
